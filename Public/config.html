@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações do Banco</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.0.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/config.css">
+</head>
+
+<body>
+    <!-- User Info Navbar -->
+    <div class="navbar">
+        <div class="user-info">
+            <span class="user-name">Bem-Vindo, Marcos</span>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <img src="img/logo.png" class="logo" alt="Logo">
+        <ul class="list-unstyled">
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-moon-fill me-2"></i>
+                    Modo Escuro
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-bar-chart-fill me-2"></i>
+                    Controle de Gastos
+                </a>
+            </li>
+
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-credit-card-fill me-2"></i>
+                    Cartões
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-shield-lock-fill me-2"></i>
+                    Seguro
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-arrow-left-right me-2"></i>
+                    Transferências
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-person-fill me-2"></i>
+                    Meus Dados
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-file-earmark-text me-2"></i>
+                    Extratos
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-cash-stack me-2"></i>
+                    Investimentos
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3  active">
+                    <i class="bi bi-gear-fill me-2"></i>
+                    Configurações
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Settings -->
+        <main class=" settings">
+            <h3>Configurações Gerais</h3>
+            <form>
+                <!-- Configurações de Perfil -->
+                <div class="form-group">
+                    <label for="userFullName">Nome Completo</label>
+                    <input type="text" class="form-control" id="userFullName" placeholder="Digite seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" class="form-control" id="userEmail" placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Senha</label>
+                    <input type="password" class="form-control" id="userPassword" placeholder="Digite uma nova senha">
+                </div>
+                <!-- Configurações de Idioma -->
+                <div class="form-group">
+                    <label for="languageSelect">Idioma</label>
+                    <select class="form-control" id="languageSelect">
+                        <option>Português</option>
+                        <option>Inglês</option>
+                        <option>Espanhol</option>
+                    </select>
+                </div>
+                <!-- Informações de SAC -->
+                <div class="form-group">
+                    <label for="sacNumber">Número do SAC</label>
+                    <input type="text" class="form-control" id="sacNumber"
+                        placeholder="Número para atendimento ao cliente">
+                </div>
+                <!-- Configurações de Notificações -->
+                <div class="form-group">
+                    <label for="notifications">Notificações</label>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="notifications">
+                        <label class="custom-control-label" for="notifications">Receber notificações por
+                            email</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </form>
+        </main>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

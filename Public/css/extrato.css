@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f6f6f9;
+    display: flex;
+}
+
+a {
+    font-weight: 500 !important;
+}
+
+.container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.card {
+    width: 100%;
+    border-radius: 1rem;
+    background-color: transparent;
+    border: none;
+}
+
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card-info div {
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background-color: white;
+    flex: 1 1 17rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+.card-info div:hover {
+    box-shadow: none;
+}
+
+.card-info div h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-info div p {
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.card-body {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.card-body:hover {
+    box-shadow: none;
+}
+
+.card-body h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-body table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.card-body table th,
+.card-body table td {
+    border-bottom: 1px solid #ddd;
+    padding: 0.9rem;
+}
+
+.deposit {
+    color: green;
+}
+
+.withdrawal {
+    color: red;
+}
+
+.download-button {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.download-button button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#sidebar {
+    min-height: 100vh;
+    padding: 1rem;
+    background: #fff;
+}
+
+img {
+    width: 200px;
+}
+
+
+#sidebar a {
+    color: #7d8da1 !important;
+    transition: all 300ms ease !important;
+}
+
+#sidebar a:hover {
+    color: #7380ec !important;
+    margin-left: calc(1rem - 1px) !important;
+}
+
+#sidebar a.active {
+    color: #7380ec !important;
+    margin-left: calc(1rem - 1px) !important;
+}
+
+.list-unstyled li:last-child {
+    margin-top: 55px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+
+.user-name {
+    font-weight: bold;
+    color: #333;
+}
+
+#hamburger-btn {
+    display: none;
+    position: absolute;
+    /* Fixa o botão independente do scroll da página */
+    top: -2px;
+    /* Posiciona 10px a partir do topo da página */
+    left: 10px;
+    /* Posiciona 10px a partir do lado esquerdo da página */
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    z-index: 1001;
+}
+
+#sidebar {
+    transition: transform 0.3s ease;
+}
+
+
+
+@media (max-width: 425px) {
+
+
+    #hamburger-btn {
+        display: block;
+    }
+
+    #sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #fff;
+        z-index: 1000;
+    }
+
+    #sidebar.active {
+        transform: translateX(0);
+    }
+
+    #sidebar.active {
+        transform: translateX(0);
+    }
+
+}

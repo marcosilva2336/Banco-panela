@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extrato Bancário</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/extrato.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="user-info">
+            <span class="user-name">Bem-Vindo, Marcos</span>
+        </div>
+    </div>
+    <button id="hamburger-btn">&#9776;</button>
+
+    <div id="sidebar">
+        <img src="img/logo.png" alt="Logo">
+        <ul class="list-unstyled">
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-moon-fill me-2"></i>
+                    Modo Escuro
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3 active">
+                    <i class="bi bi-bar-chart-fill me-2"></i>
+                    Controle de Gastos
+                </a>
+            </li>
+
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-credit-card-fill me-2"></i>
+                    Cartões
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-shield-lock-fill me-2"></i>
+                    Seguro
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-arrow-left-right me-2"></i>
+                    Transferências
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-person-fill me-2"></i>
+                    Meus Dados
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-file-earmark-text me-2"></i>
+                    Extratos
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-cash-stack me-2"></i>
+                    Investimentos
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-gear-fill me-2"></i>
+                    Configurações
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="nav-link px-3">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-info">
+                <div>
+                    <h2>Data</h2>
+                    <p id="date"></p>
+                </div>
+                <div>
+                    <h2>Saldo</h2>
+                    <p id="balance" class="deposit"></p>
+                </div>
+                <div>
+                    <h2>Saque</h2>
+                    <p id="withdrawal" class="withdrawal"></p>
+                </div>
+            </div>
+            <div class="card-body">
+                <h2>Tabela de Extrato</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transaction-body">
+                    </tbody>
+                </table>
+            </div>
+            <div class="download-button">
+                <button onclick="gerarExtrato()">Gerar Extrato</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Dados do extrato
+        const extrato = [
+            { data: '15/07/2023', descricao: 'Depósito', valor: 50.00, tipo: 'deposit' },
+            { data: '15/07/2023', descricao: 'Saque', valor: 50.00, tipo: 'withdrawal' },
+            { data: '10/07/2023', descricao: 'Depósito', valor: 50.00, tipo: 'deposit' },
+            { data: '05/07/2023', descricao: 'Saque', valor: 20.00, tipo: 'withdrawal' },
+            { data: '05/07/2023', descricao: 'Saque', valor: 20.00, tipo: 'withdrawal' },
+            { data: '05/07/2023', descricao: 'Saque', valor: 20.00, tipo: 'withdrawal' },
+            { data: '05/07/2023', descricao: 'Saque', valor: 20.00, tipo: 'withdrawal' },
+            { data: '05/07/2023', descricao: 'Saque', valor: 20.00, tipo: 'withdrawal' }
+        ];
+
+        // Função para renderizar o extrato
+        function renderExtrato() {
+            const dateElement = document.getElementById('date');
+            const balanceElement = document.getElementById('balance');
+            const withdrawalElement = document.getElementById('withdrawal');
+            const transactionBodyElement = document.getElementById('transaction-body');
+
+            let balance = 0;
+            let withdrawalTotal = 0;
+
+            // Limpa as informações
+            dateElement.textContent = '';
+            balanceElement.textContent = '';
+            withdrawalElement.textContent = '';
+
+            // Limpa as transações
+            transactionBodyElement.innerHTML = '';
+
+            // Renderiza as transações
+            extrato.forEach(transaction => {
+                const { data, descricao, valor, tipo } = transaction;
+
+                const row = document.createElement('tr');
+                const dateCell = document.createElement('td');
+                const descriptionCell = document.createElement('td');
+                const valueCell = document.createElement('td');
+
+                dateCell.textContent = data;
+                descriptionCell.textContent = descricao;
+
+                if (tipo === 'deposit') {
+                    valueCell.textContent = `R$ ${valor.toFixed(2)}`;
+                    valueCell.style.color = 'green';
+                    balance += valor;
+                } else if (tipo === 'withdrawal') {
+                    valueCell.textContent = `R$ ${(-valor).toFixed(2)}`;
+                    valueCell.style.color = 'red';
+                    withdrawalTotal += valor;
+                    balance -= valor;
+                }
+
+                row.appendChild(dateCell);
+                row.appendChild(descriptionCell);
+                row.appendChild(valueCell);
+                transactionBodyElement.appendChild(row);
+            });
+
+            // Atualiza as informações
+            dateElement.textContent = new Date().toLocaleDateString('pt-BR');
+            balanceElement.textContent = `R$ ${balance.toFixed(2)}`;
+            withdrawalElement.textContent = `R$ ${withdrawalTotal.toFixed(2)}`;
+        }
+
+        // Função para capturar e baixar o extrato
+        function gerarExtrato() {
+            const doc = new jsPDF();
+            let balance = 0;
+            let withdrawalTotal = 0;
+            let y = 30;
+
+            doc.setFontSize(20);
+            doc.text('Extrato Bancário', 105, 20, { align: 'center' });
+
+            // Renderiza as transações
+            extrato.forEach(transaction => {
+                const { data, descricao, valor, tipo } = transaction;
+
+                doc.setFontSize(14);
+                doc.text(data, 20, y);
+                doc.text(descricao, 50, y);
+
+                if (tipo === 'deposit') {
+                    doc.setTextColor(0, 128, 0);
+                    doc.text(`R$ ${valor.toFixed(2)}`, 130, y, { align: 'right' });
+                    balance += valor;
+                } else if (tipo === 'withdrawal') {
+                    doc.setTextColor(255, 0, 0);
+                    doc.text(`R$ ${(-valor).toFixed(2)}`, 130, y, { align: 'right' });
+                    withdrawalTotal += valor;
+                    balance -= valor;
+                }
+
+                y += 10;
+
+                // Reseta a cor do texto
+                doc.setTextColor(0, 0, 0);
+            });
+
+            y += 20;
+
+            // Renderiza o saldo e total de saques
+            doc.setFontSize(16);
+            doc.setTextColor(0, 128, 0);
+            doc.text(`Saldo: R$ ${balance.toFixed(2)}`, 130, y, { align: 'right' });
+
+            y += 10;
+
+            doc.setTextColor(255, 0, 0);
+            doc.text(`Saque Total: R$ ${withdrawalTotal.toFixed(2)}`, 130, y, { align: 'right' });
+
+            // Gera o PDF
+            doc.save('extrato.pdf');
+        }
+
+        // Renderiza o extrato quando a página carrega
+        window.onload = renderExtrato;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            width: 100%;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-header {
+            font-size: 2rem;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .card-info div {
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            flex: 1 1 15rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.5rem;
+        }
+
+        .card-info div:hover{
+            box-shadow: none;
+        }
+
+        .card-info div h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-info div p {
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .card-body {
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            width: 99%;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+         
+        .card-body:hover{
+            box-shadow: none;
+        }
+        .card-body h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-body table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .card-body table th,
+        .card-body table td {
+            border-bottom: 1px solid #ddd;
+            padding: 0.5rem;
+        }
+
+        .container .btn{
+            display: block;
+            background: #eee;
+            margin: 1.5rem 0;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.9rem;
+            border: .1rem solid rgba(0, 0, 0,  0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0,  0.1);
+        }
+
+        .container .btn:hover{
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Fatura do Cartão de Crédito
+            </div>
+            <div class="card-info">
+                <div>
+                    <h2>Data da Fatura</h2>
+                    <p>14/07/2023</p>
+                </div>
+                <div>
+                    <h2>Limite Disponível</h2>
+                    <p>R$ 5.000,00</p>
+                </div>
+                <div>
+                    <h2>Fatura Atual</h2>
+                    <p>R$ 1.000,00</p>
+                </div>
+            </div>
+            <div class="card-body">
+                <h2>Detalhes da Fatura</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Compra</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Supermercado</td>
+                            <td>05/07/2023</td>
+                            <td>R$ 200,00</td>
+                        </tr>
+                        <tr>
+                            <td>Restaurante</td>
+                            <td>07/07/2023</td>
+                            <td>R$ 300,00</td>
+                        </tr>
+                        <tr>
+                            <td>Pagamento de Contas</td>
+                            <td>10/07/2023</td>
+                            <td>R$ 500,00</td>
+                        </tr>
+                        <tr>
+                            <td>Compra de Livros</td>
+                            <td>12/07/2023</td>
+                            <td>R$ 150,00</td>
+                        </tr>
+                        <tr>
+                            <td>Loja de Roupas</td>
+                            <td>13/07/2023</td>
+                            <td>R$ 350,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit" class="btn">Pagar fatura</button>
+        </div>
+    </div>
+</body>
+
+</html>

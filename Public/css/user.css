@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f9;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  overflow-x: hidden;
+}
+
+a {
+  font-weight: 500 !important;
+}
+
+#sidebar {
+  min-height: 100vh;
+  padding: 1rem;
+  background: #fff;
+}
+
+img{
+    width: 200px;
+}
+
+
+#sidebar a {
+  color: #7d8da1 !important;
+  transition: all 300ms ease !important;
+}
+
+#sidebar a:hover {
+  color: #7380ec !important;
+  margin-left: calc(1rem - 1px) !important;
+}
+
+#sidebar a.active {
+  color: #7380ec !important;
+  margin-left: calc(1rem - 1px) !important;
+}
+
+.list-unstyled li:last-child {
+  margin-top: 55px;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+
+.balance-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.5rem;
+}
+
+
+.balance-card {
+  flex: 0 0 45%;
+  margin: 0 2%;
+  background: white !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  color: #000 !important;
+  border-radius: 10px !important;
+}
+
+.balance-card h4 , h2 {
+    font-weight: 600;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section h3 {
+  text-align: center;
+  font-weight: 600;
+}
+
+table {
+  width: 90%;
+  margin: 1rem auto;
+  background-color: white;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  border-collapse: separate;
+}
+
+table th {
+  border: none;
+}
+
+table tr {
+  border-bottom: 1px solid #e0e0e0;
+  height: 2.8rem;
+}
+
+table td {
+  color: #677483;
+}
+
+
+
+.card {
+  width: 80%;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-info div {
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  flex: 1 1 15rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+}
+
+.card-info div:hover {
+  box-shadow: none;
+}
+
+.card-info div h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-info div p {
+  color: #999;
+  font-size: 1.2rem;
+}
+
+#hamburger-btn {
+  display: none;
+  position: absolute; /* Fixa o botão independente do scroll da página */
+  top: -2px; /* Posiciona 10px a partir do topo da página */
+  left: 10px; /* Posiciona 10px a partir do lado esquerdo da página */
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 1001;
+}
+
+#sidebar {
+  transition: transform 0.3s ease;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #333;
+}
+/* Estilos gerais e responsivos */
+
+@media (max-width: 992px) { /* Para telas menores que LG (992px) */
+  .balance-card {
+    margin: 0; /* Remove margens laterais */
+    width: 100%; /* Ajusta para a largura total da coluna */
+  }
+}
+
+
+@media (max-width: 425px) {
+  .balance-card {
+    padding: 1rem; 
+  }
+
+  #hamburger-btn {
+    display: block;
+  }
+
+  #sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    z-index: 1000;
+  }
+
+  #sidebar.active {
+    transform: translateX(0);
+  }
+
+  #sidebar.active {
+    transform: translateX(0);
+  }
+
+}
