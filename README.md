@@ -37,6 +37,12 @@ Bem-vindo ao repositório do Banco Digital Panela, uma plataforma bancária digi
 
 - **Painel de Administração**: Uma interface de administração robusta para que os administradores possam gerenciar usuários, transações, cartões e outras operações bancárias.
 
+## Testes
+
+- **Jest**: Um framework de testes em JavaScript com um foco em simplicidade, que nos permite criar testes de unidade e integrados com snapshots e mock functions.
+
+- **Supertest**: Utilizado em conjunto com o Jest para testar APIs, permitindo realizar testes de integração HTTP assertivos e descritivos.
+
 
 
 1. Clone o repositório:
